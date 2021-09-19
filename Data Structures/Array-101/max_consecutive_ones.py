@@ -20,7 +20,11 @@ def findMaxConsecutiveOnes(nums):
     return result
 
 
-if __name__ == '__main__':
+def main():
     nums = [1, 1, 0, 1, 0, 0, 1, 1, 1]
     result = findMaxConsecutiveOnes(nums)
     print(f"Max consecutive 1's in the array: {result}")
+
+
+if __name__ == '__main__':
+    main()
