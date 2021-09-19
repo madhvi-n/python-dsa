@@ -20,9 +20,6 @@ class Stack(object):
     def isEmpty(self):
         return len(self.items) == 0
 
-    def isFull(self):
-        pass
-
     def peek(self):
         return self.items[self.top]
 
