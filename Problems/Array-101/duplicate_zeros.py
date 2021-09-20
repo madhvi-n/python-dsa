@@ -3,8 +3,9 @@ Given a fixed-length integer array arr, duplicate each occurrence of zero, shift
 
 Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.
 """
+from typing import List
 
-def duplicateZeros(arr):
+def duplicateZeros(arr: List[int]) -> List[int]:
     zeros = 0
     arr_length = len(arr) - 1
 
