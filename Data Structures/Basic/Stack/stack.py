@@ -41,3 +41,14 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+"""
+Output:
+Top: 0
+Top: 1
+Stack Items: B [23, 19] T
+Is stack empty? False
+Top: 1
+Peek: 19
+"""
