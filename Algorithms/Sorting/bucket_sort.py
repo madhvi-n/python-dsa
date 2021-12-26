@@ -7,7 +7,7 @@ Each bucket is then sorted by using any of the suitable sorting algorithms or re
 Finally, the sorted buckets are combined to form a final sorted array.
 """
 
-def bucketSort(num_list):
+def bucket_sort(num_list):
     bucket_count = int(max(num_list)  - min(num_list)) + 1
     buckets = [[] for _ in range(bucket_count)]
 
@@ -18,7 +18,7 @@ def bucketSort(num_list):
 
 def main():
     num_list = [8, 2, 4, 9, -12, 98, 15, 369, 213, 7, 26, 68, 39, -23]
-    result = bucketSort(num_list)
+    result = bucket_sort(num_list)
     print(f"Bucket sort: {result}")
 
 
