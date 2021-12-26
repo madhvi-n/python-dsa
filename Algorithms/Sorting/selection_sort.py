@@ -12,7 +12,7 @@ Time Complexity: O(n^2)
 """
 from typing import List
 
-def selectionSort(num_list: List[int]) -> List[int]:
+def selection_sort(num_list: List[int]) -> List[int]:
     for step in range(0, len(num_list)):
         min_index = step
         for index in range(step + 1, len(num_list)):
@@ -24,7 +24,7 @@ def selectionSort(num_list: List[int]) -> List[int]:
 
 def main():
     num_list = [8, 2, 4, 6, 9, 12, 1, 0, 7, 5]
-    result = selectionSort(num_list)
+    result = selection_sort(num_list)
     print(f"Selection sort: {result}")
 
 
