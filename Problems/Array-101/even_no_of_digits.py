@@ -2,7 +2,7 @@
 Given an array nums of integers, return how many of them contain an even number of digits.
 """
 
-def findNumbers(nums):
+def find_numbers(nums):
     result = 0
     for i in range(0, len(nums)):
         count = len(str(nums[i]))
@@ -13,7 +13,7 @@ def findNumbers(nums):
 
 def main():
     nums = [23, 1245, 124]
-    result = findNumbers(nums)
+    result = find_numbers(nums)
     print(f"Even no of digits: {result}")
 
 

@@ -2,7 +2,7 @@
 Given a binary array nums, return the maximum number of consecutive 1's in the array.
 """
 
-def findMaxConsecutiveOnes(nums):
+def max_consecutive_ones(nums):
     # intitialize count
     count = 0
 
@@ -22,7 +22,7 @@ def findMaxConsecutiveOnes(nums):
 
 def main():
     nums = [1, 1, 0, 1, 0, 0, 1, 1, 1]
-    result = findMaxConsecutiveOnes(nums)
+    result = max_consecutive_ones(nums)
     print(f"Max consecutive 1's in the array: {result}")
 
 

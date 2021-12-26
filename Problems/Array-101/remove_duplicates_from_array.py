@@ -8,13 +8,13 @@ Return k after placing the final result in the first k slots of nums.
 Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 """
 
-def removeDuplicates(nums):
-    pass
+def remove_duplicates(nums):
+    return list(set(nums))
 
 
 def main():
     nums = [0,0,1,1,1,2,2,3,3,4]
-    result = removeDuplicates(nums)
+    result = remove_duplicates(nums)
     print(f"Array: {result}")
 
 

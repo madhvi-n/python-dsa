@@ -5,7 +5,7 @@ Note that elements beyond the length of the original array are not written. Do t
 """
 from typing import List
 
-def duplicateZeros(arr: List[int]) -> List[int]:
+def duplicate_zeroes(arr: List[int]) -> List[int]:
     zeros = 0
     arr_length = len(arr) - 1
 
@@ -35,7 +35,7 @@ def duplicateZeros(arr: List[int]) -> List[int]:
 def main():
     arr = [1, 0, 2, 3, 0, 4, 5, 0, 0, 4]
     print(f"Original Array: {arr}")
-    result = duplicateZeros(arr)
+    result = duplicate_zeroes(arr)
     print(f"Duplicate zeros: {result}")
 
 

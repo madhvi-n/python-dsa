@@ -8,7 +8,7 @@ Return k after placing the final result in the first k slots of nums.
 Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 """
 
-def removeElement(nums, val):
+def remove_element(nums, val):
     n = len(nums)
     nums = [nums.remove(val) for i in range(nums.count(val))]
     return n - len(nums)
@@ -17,7 +17,7 @@ def removeElement(nums, val):
 def main():
     nums = [1, 2, 3, 3, 8, 4, 3]
     val = 3
-    result = removeElement(nums, val)
+    result = remove_element(nums, val)
     print(f"Remaining elements: {result}")
 
 
