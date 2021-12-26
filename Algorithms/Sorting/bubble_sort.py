@@ -11,7 +11,7 @@ Time Complexity: O(n^2)
 """
 from typing import List
 
-def bubbleSort(num_list: List[int]) -> List[int]:
+def bubble_sort(num_list: List[int]) -> List[int]:
     for i in range(0, len(num_list)):
         for j in range(0, len(num_list) - i - 1):
             if num_list[j] > num_list[j+1]:
@@ -19,7 +19,7 @@ def bubbleSort(num_list: List[int]) -> List[int]:
     return num_list
 
 
-def optimizedBubbleSort(num_list: List[int]) -> List[int]:
+def optimized_bubble_sort(num_list: List[int]) -> List[int]:
     for i in range(0, len(num_list)):
         swapped = False
 
@@ -36,8 +36,8 @@ def optimizedBubbleSort(num_list: List[int]) -> List[int]:
 
 def main():
     num_list = [8, 2, 4, 6, 9, 12, 1, 0, 7, 5]
-    result1 = bubbleSort(num_list)
-    result2 = optimizedBubbleSort(num_list)
+    result1 = bubble_sort(num_list)
+    result2 = optimized_bubble_sort(num_list)
     print(f"Bubble sort: {result1}")
     print(f"Bubble sort: {result2}")
 
