@@ -16,7 +16,7 @@ class Stack(object):
         self.items.pop()
         self.top -= 1
 
-    def isEmpty(self):
+    def is_empty(self):
         return len(self.items) == 0
 
     def peek(self):
@@ -34,7 +34,7 @@ def main():
     stack.push(15)
     stack.pop()
     print(f"Stack Items: B {stack.items} T")
-    print(f"Is stack empty? {stack.isEmpty()}")
+    print(f"Is stack empty? {stack.is_empty()}")
     print(f"Top: {stack.top}")
     print(f"Peek: {stack.peek()}")
 
