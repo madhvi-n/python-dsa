@@ -12,7 +12,7 @@ Time complexity: O(n^2)
 from typing import List
 
 
-def insertionSort(num_list: List[int]) -> List[int]:
+def insertion_sort(num_list: List[int]) -> List[int]:
     for i in range(1, len(num_list)):
         key = num_list[i]
         j = i - 1
@@ -27,7 +27,7 @@ def insertionSort(num_list: List[int]) -> List[int]:
 
 def main():
     num_list = [8, 2, 4, 6, 9, 12, 1, 0, 7, 5]
-    result = insertionSort(num_list)
+    result = insertion_sort(num_list)
     print(f"Insertion sort: {result}")
 
 
