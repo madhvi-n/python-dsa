@@ -2,7 +2,7 @@
 Queue implementation using List
 """
 
-class Queue(object):
+class Queue:
     def __init__(self):
         self.queue = []
         self.front = -1
@@ -30,7 +30,7 @@ class Queue(object):
         if not self.isEmpty():
             return self.queue[0]
         return "Queue is empty"
-
+        
 
 def main():
     queue = Queue()
