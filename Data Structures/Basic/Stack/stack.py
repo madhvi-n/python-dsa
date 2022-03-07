@@ -4,38 +4,37 @@ Stack implementation using List
 
 class Stack(object):
     def __init__(self):
-        self.items = []
-        self.top = -1
+        self._data = []
 
     def push(self, val):
-        self.items.append(val)
-        self.top += 1
-        pass
+        self._data.append(val)
 
     def pop(self):
-        self.items.pop()
-        self.top -= 1
+        if self.is_empty():
+            raise Empty('Stack is empty')
+        return self._data.pop()
 
     def is_empty(self):
-        return len(self.items) == 0
+        return len(self._data) == 0
 
     def peek(self):
-        return self.items[self.top]
+        if self.is_empty():
+            raise Empty('Stack is empty')
+        return self._data[-1]
 
 
 def main():
     stack = Stack()
     stack.push(23)
-    print(f"Top: {stack.top}")
+    print(f"Top: {stack.peek()}")
 
     stack.push(19)
-    print(f"Top: {stack.top}")
+    print(f"Top: {stack.peek()}")
 
     stack.push(15)
     stack.pop()
-    print(f"Stack Items: B {stack.items} T")
+
     print(f"Is stack empty? {stack.is_empty()}")
-    print(f"Top: {stack.top}")
     print(f"Peek: {stack.peek()}")
 
 
@@ -45,10 +44,9 @@ if __name__ == '__main__':
 
 """
 Output:
-Top: 0
-Top: 1
+Top: 23
+Top: 19
 Stack Items: B [23, 19] T
 Is stack empty? False
-Top: 1
-Peek: 19
+Top: 15
 """
