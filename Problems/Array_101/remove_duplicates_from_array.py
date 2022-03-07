@@ -12,10 +12,23 @@ def remove_duplicates(nums):
     return list(set(nums))
 
 
+def remove_duplicates2(nums):
+    last = nums[0]
+    for index, num in enumerate(nums):
+        print(index, last, num)
+        if last == num:
+            nums.pop(index)
+        last = num
+    return nums
+
+
 def main():
     nums = [0,0,1,1,1,2,2,3,3,4]
     result = remove_duplicates(nums)
-    print(f"Array: {result}")
+    # print(f"Array: {result}")
+
+    arr = remove_duplicates2(nums)
+    print(arr)
 
 
 if __name__ == '__main__':

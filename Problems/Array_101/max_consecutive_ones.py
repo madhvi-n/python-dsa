@@ -9,7 +9,7 @@ def max_consecutive_ones(nums):
     # initialize max
     result = 0
 
-    for i in range(0, len(nums)):
+    for i in range(len(nums)):
         # Reset count when 0 is found
         if (nums[i] == 0):
             count = 0
