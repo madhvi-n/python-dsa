@@ -34,10 +34,7 @@ def print_list(head):
     print()
 
 
-def multiply_with_int(head, k):
-    if k > 9:
-        raise ValueError(f"k should not be greater than 9")
-
+def multiply(head, k):
     if head is None or k == 0:
         return None
 
@@ -61,10 +58,6 @@ def multiply_with_int(head, k):
     return reverse(rll)
 
 
-def multiply(l1, l2):
-    pass
-
-
 def main():
     l1 = ListNode(2)
     l1.next = ListNode(5)
@@ -72,7 +65,7 @@ def main():
 
     print_list(l1)
 
-    node = multiply_with_int(l1, 8)
+    node = multiply(l1, 8)
     print_list(node)
 
 if __name__ == '__main__':
