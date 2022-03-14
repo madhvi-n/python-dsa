@@ -1,19 +1,12 @@
 """
 Linked List
-Operations -> complexity
-
 """
 
-class Node:
-    def __init__(self, data=None, next=None):
+
+class ListNode:
+    def __init__(self, data=None, next_node=None):
         self.data = data
-        self.next = next
-
-    def __repr__(self):
-        return self.data
-
-    def __str__(self):
-        return self.data
+        self.next = next_node
 
 
 class LinkedList:
@@ -33,22 +26,21 @@ class LinkedList:
         print(res)
 
     def insert_at_beginning(self, data):
-        node = Node(data, self.head)
+        node = ListNode(data, self.head)
         self.head = node
 
     def insert_at_end(self, data):
-        #If linked list is empty, node will become the head
+        # If linked list is empty, node will become the head
         if self.head is None:
-            self.head = Node(data, None)
+            self.head = ListNode(data, None)
 
-        #Iterate through nodes. Loop will break for node whose next is None (last node)
+        # Iterate through nodes. Loop will break for node whose next is None (last node)
         node = self.head
         while node.next:
             node = node.next
 
-        #Insert the new node
-        node.next = Node(data, None)
-
+        # Insert the new node
+        node.next = ListNode(data, None)
 
     def length(self):
         count = 0
@@ -71,9 +63,9 @@ class LinkedList:
 
         while node is not None:
             if count == index - 1:
-                node = Node(data, node.next)
-                node.next = node
-
+                new_node = ListNode(data, node.next)
+                node.next = new_node
+                break
             node = node.next
             count += 1
 
@@ -115,13 +107,13 @@ class LinkedList:
             return
 
         if self.head.data == data_after:
-            self.head.next = Node(data_after, self.head.next)
+            self.head.next = ListNode(data_after, self.head.next)
             return
 
         node = self.head
         while node.next is not None:
             if node.data == data_after:
-                node.next = Node(data, node.next)
+                node.next = ListNode(data, node.next)
                 break
             node = node.next
 
@@ -140,6 +132,7 @@ class LinkedList:
                 break
             node = node.next
 
+
 def main():
     ll = LinkedList()
     ll.insert_at_beginning(2)
@@ -156,13 +149,12 @@ def main():
     ll.remove_at(1)
     ll.print()
 
-
     ll2 = LinkedList()
-    ll2.insert_values(["banana","mango","grapes","orange"])
+    ll2.insert_values(["banana", "mango", "grapes", "orange"])
     ll2.print()
-    ll2.insert_after_value("mango","apple") # insert apple after mango
+    ll2.insert_after_value("mango", "apple")  # insert apple after mango
     ll2.print()
-    ll2.remove_by_value("grapes") # remove orange from linked list
+    ll2.remove_by_value("grapes")  # remove orange from linked list
     ll2.print()
     ll2.remove_by_value("figs")
     ll2.print()
@@ -171,6 +163,7 @@ def main():
     ll2.remove_by_value("apple")
     ll2.remove_by_value("grapes")
     ll2.print()
+
 
 if __name__ == '__main__':
     main()
