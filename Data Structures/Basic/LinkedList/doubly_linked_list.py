@@ -1,145 +1,144 @@
 """
-Doubly linked list
+Doubly Linked List
 """
 
+
 class Node:
-    def __init__(self, data=None, prev=None, next=None):
-        self.data = data
+    def __init__(self, val, next_node=None, prev=None):
+        self.val = val
+        self.next = next_node
         self.prev = prev
-        self.next = next
-
-    def __repr__(self):
-        return self.data
-
-    def __str__(self):
-        return self.data
 
 
 class DoublyLinkedList:
+
     def __init__(self):
         self.head = None
+        self.size = 0
 
-    def last_node(self):
-        """Returns last node of the doubly linked list"""
-        node = self.head
-        while node.next:
-            node = node.next
-        return node
-
-
-    def length(self):
-        """Returns length of the linked list"""
-        count = 0
+    def print_list(self) -> None:
         node = self.head
         while node:
-            node = node.next
-            count += 1
-        return count
+            print(f"{node.val} ->", end="")
+        print()
 
-    def print_forward(self):
-        """Prints nodes from front to rear"""
+    def get(self, index: int) -> int:
+        if index < 0 or index >= self.size:
+            return -1
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+
+        return temp.val
+
+    def insert_at_beginning(self, val: int) -> None:
+        new_node = Node(val)
         if self.head is None:
-            print("Linked list is empty")
-            return
-
-        itr = self.head
-        llstr = ''
-        while itr:
-            llstr += str(itr.data) + ' --> '
-            itr = itr.next
-        print(llstr)
-
-    def print_backward(self):
-        """Prints nodes from rear to front"""
-        if self.head is None:
-            print("Linked list is empty")
-            return
-
-        node = self.last_node()
-        res = " "
-        while node:
-            res += str(node.data) + ' <-- '
-            node = node.prev
-        print(res)
-
-    def insert_at_beginning(self, data):
-        """Inserts node at the front"""
-        if self.head == None:
-            node = Node(data, None, self.head)
-            self.head = node
+            self.head = new_node
         else:
-            node = Node(data, None, self.head)
-            self.head.prev = node
-            self.head = node
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
 
-    def insert_at_end(self, data):
-        """Inserts node at the rear"""
+        self.size += 1
+
+    def insert_at_end(self, val: int) -> None:
+        new_node = Node(val)
         if self.head is None:
-            self.head = Node(data, None, None)
+            self.insert_at_beginning(val)
             return
+        temp = self.head
+        while temp and temp.next:
+            temp = temp.next
 
-        last = self.last_node()
-        node = Node(data, last, None)
+        temp.next = new_node
+        new_node.prev = temp
+        self.size += 1
 
-
-    def insert_at(self, index, data):
-        """Inserts node at the given index"""
-        if index < 0 or index > self.length():
-            raise Exception("Invalid Index")
+    def insert_at(self, index: int, val: int) -> None:
+        if index < 0 or index > self.size:
+            return
 
         if index == 0:
-            self.insert_at_begining(data)
+            self.insert_at_beginning(val)
+            return
+        if index == self.size:
+            self.insert_at_end(val)
             return
 
-        count = 0
-        node = self.head
-        while node:
-            if count == index - 1:
-                new_node = Node(data, node, node.next)
-                if new_node.next:
-                    new_node.next.prev = new_node
-                node.next = new_node
-                break
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
 
-            node = node.next
-            count += 1
+        new_node = Node(val)
+        new_node.next = temp
+        new_node.prev = temp.prev
+        temp.prev.next = new_node
+        temp.prev = new_node
+        self.size += 1
 
-    def insert_at_end(self, data):
-        if self.head is None:
-            self.head = Node(data, None, None)
+    def delete_head(self) -> None:
+        if self.size is None: return
+        if self.size == 1:
+            self.head = None
+        else:
+            temp = self.head
+            self.head = self.head.next
+            temp.next = None
+            self.head.prev = None
+
+        self.size -= 1
+
+    def delete_tail(self) -> None:
+        if self.size is None: return
+
+        temp = self.head
+        while temp and temp.next:
+            temp = temp.next
+
+        prev_node = temp.prev
+        temp.prev = None
+        prev_node.next = None
+        self.size -= 1
+
+    def remove_at(self, index: int) -> None:
+        if index < 0 or index >= self.size:
             return
 
-        node = self.head
-        while node.next:
-            node = node.next
-        node.next = Node(data, node, None)
+        if index == 0:
+            self.delete_head()
+            return
 
-    def remove_at(self, index):
-        count = 0
-        node = self.head
+        if index == (self.size - 1):
+            self.delete_tail()
+            return
 
-        while node:
-            if count == index - 1:
-                node.next = node.next.next
-                node.next.prev = node
-            node = node.next
-            count += 1
-        pass
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+
+        prev_node = temp.prev
+        after_node = temp.next
+        prev_node.next = after_node
+        after_node.prev = prev_node
+        temp.next = None
+        temp.prev = None
+        self.size -= 1
 
 
 def main():
     dll = DoublyLinkedList()
-    dll.insert_at_beginning("mango")
-    dll.insert_at_beginning("grapes")
-    dll.print_forward()
+    dll.insert_at_beginning(2)
+    dll.insert_at_beginning(3)
+    dll.print_list()
 
-    dll.insert_at(1, "berries")
-    dll.insert_at(3, "apple")
-    dll.insert_at(2, "banana")
-    dll.print_forward()
+    dll.insert_at(1, 5)
+    dll.insert_at(3, 6)
+    dll.insert_at(2, 7)
+    dll.print_list()
 
     dll.remove_at(1)
-    dll.print_forward()
+    dll.print_list()
 
 
 if __name__ == '__main__':
