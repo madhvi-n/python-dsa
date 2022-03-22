@@ -1,7 +1,9 @@
 """
-Given an array arr[] and an integer K where K is smaller than size of array, the task is to find the Kth smallest element in the given array. It is given that all array elements are distinct.
+Given an array arr[] and an integer K where K is smaller than size of array,
+the task is to find the Kth smallest element in the given array. It is given that all array elements are distinct.
 """
 from typing import List
+
 
 def merge_sort(arr: List[int], left: int, right: int) -> List[int]:
     if right - left <= 1:
@@ -12,6 +14,7 @@ def merge_sort(arr: List[int], left: int, right: int) -> List[int]:
         first = merge_sort(arr, left, mid)
         second = merge_sort(arr, mid, right)
         return merge(first, second)
+
 
 def merge(arr1: List[int], arr2: List[int]) -> List[int]:
     result = []
@@ -33,12 +36,15 @@ def merge(arr1: List[int], arr2: List[int]) -> List[int]:
             j += 1
     return result
 
+
 def kth_smallest(nums: List[int], k: int) -> int:
     sorted_array = merge_sort(nums, 0, len(nums))
     return sorted_array[k - 1]
 
+
 def main():
-    print(kth_smallest([7,10,4,3,20,15], 3))
+    print(kth_smallest([7, 10, 4, 3, 20, 15], 3))
+
 
 if __name__ == '__main__':
     main()

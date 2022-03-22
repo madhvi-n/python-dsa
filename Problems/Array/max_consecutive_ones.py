@@ -2,8 +2,9 @@
 Given a binary array nums, return the maximum number of consecutive 1's in the array.
 """
 
+
 def max_consecutive_ones(nums):
-    # intitialize count
+    # initialize count
     count = 0
 
     # initialize max
@@ -11,7 +12,7 @@ def max_consecutive_ones(nums):
 
     for i in range(len(nums)):
         # Reset count when 0 is found
-        if (nums[i] == 0):
+        if nums[i] == 0:
             count = 0
         else:
             # increase count when 1 is found
