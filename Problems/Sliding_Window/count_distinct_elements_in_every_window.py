@@ -1,7 +1,9 @@
 """
 Given an array of integers and a number K. Find the count of distinct elements in every window of size K in the array.
 """
+
 from typing import List
+
 
 def count_distinct(nums: List[int], n: int, k: int) -> List[int]:
     result = []
@@ -26,10 +28,12 @@ def count_distinct(nums: List[int], n: int, k: int) -> List[int]:
 
     return result
 
+
 def main():
-    print(count_distinct([1,2,1,3,4,2,3], 7, 4))
-    print(count_distinct([1,2,1,3,4,2,3], 7, 3))
-    print(count_distinct([4,1,1], 3, 2))
+    print(count_distinct([1, 2, 1, 3, 4, 2, 3], 7, 4))
+    print(count_distinct([1, 2, 1, 3, 4, 2, 3], 7, 3))
+    print(count_distinct([4, 1, 1], 3, 2))
+
 
 if __name__ == '__main__':
     main()

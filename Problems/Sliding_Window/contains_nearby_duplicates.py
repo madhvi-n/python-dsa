@@ -7,6 +7,7 @@ Given an integer array nums and an integer k, return true if there are two disti
 
 from typing import List
 
+
 def contains_nearby_duplicates(nums: List[int], k: int) -> bool:
     window = set()
     i, j = 0, 0
@@ -21,12 +22,12 @@ def contains_nearby_duplicates(nums: List[int], k: int) -> bool:
 
         window.add(nums[j])
         j += 1
-
     return False
 
 
 def main():
     print(contains_nearby_duplicates([1,2,3,1], 3))
+
 
 if __name__ == '__main__':
     main()

@@ -7,6 +7,7 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 """
 from typing import List
 
+
 def findAnagrams(string: str, pattern: str) -> List[int]:
 
     if len(pattern) > len(string):
@@ -43,9 +44,11 @@ def findAnagrams(string: str, pattern: str) -> List[int]:
             res.append(left)
     return res
 
+
 def main():
     print(findAnagrams("cbaebabacd", "abc"))
     print(findAnagrams("abab", "ab"))
+
 
 if __name__ == '__main__':
     main()

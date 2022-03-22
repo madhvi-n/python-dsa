@@ -22,6 +22,7 @@ def first_negative_in_arr(nums: List[int], k: int) -> List[int]:
             start += 1
     return res
 
+
 def main():
     res = first_negative_in_arr([12, -1, -7, 8, -15, 30, 16, 28], 3)
     print(res)
