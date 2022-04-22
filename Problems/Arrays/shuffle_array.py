@@ -12,15 +12,15 @@ def shuffle_array(nums: List[int], n: int) -> List[int]:
     result = [];
 
     for i in range(0, n):
-        result.append(arr1[i]);
-        result.append(arr2[i]);
+        result.append(arr1[i])
+        result.append(arr2[i])
     return result
 
 
 def main():
-    nums = [2,5,1,3,4,7]
+    nums = [2, 5, 1, 3, 4, 7]
     print(nums)
-    
+
     array = shuffle_array(nums, 3)
     print(array)
 
