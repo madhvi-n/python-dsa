@@ -59,8 +59,34 @@ def boundary_traversal(root) -> list:
     get_left_boundary(root.left)
     get_leaf_nodes(root)
     get_right_boundary(root.right)
-
     return list(res)
+
+
+#  Time: O(n)
+def exterior_binary_tree(tree):
+    def is_leaf(node):
+        return not node.left and not node.right
+
+    def left_boundary_and_leaves(subtree, is_boundary):
+        if not subtree:
+            return []
+
+        return (([subtree.val] if is_boundary or is_leaf(subtree) else [])
+                + left_boundary_and_leaves(subtree.left, is_boundary)
+                + left_boundary_and_leaves(subtree.right, is_boundary and not subtree.left)
+                )
+
+    def right_boundary_and_leaves(subtree, is_boundary):
+        if not subtree:
+            return []
+
+        return (right_boundary_and_leaves(subtree.left, is_boundary and not subtree.right)
+                + right_boundary_and_leaves(subtree.right, is_boundary)
+                + ([subtree.val] if is_boundary or is_leaf(subtree) else [])
+                )
+
+    return ([tree.val] + left_boundary_and_leaves(tree.left, True)
+            + right_boundary_and_leaves(tree.right, True) if tree else [])
 
 
 def main():
@@ -79,6 +105,7 @@ def main():
     root.left.left.left.right.right = TreeNode('e')
 
     print(boundary_traversal(root))
+    print(exterior_binary_tree(root))
 
 
 if __name__ == '__main__':

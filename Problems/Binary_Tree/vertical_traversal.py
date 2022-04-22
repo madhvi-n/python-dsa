@@ -5,6 +5,7 @@ Given a Binary Tree, find the vertical traversal of it starting from the leftmos
 If there are multiple nodes passing through a vertical line,
 then they should be printed as they appear in level order traversal of the tree.
 """
+from collections import deque
 
 
 class TreeNode:
@@ -39,6 +40,26 @@ def vertical_traversal(root):
     return result
 
 
+def vertical_order(root):
+    direction_map = {}
+    queue = deque([(root, 0)])
+    while queue:
+        node, direction = queue.popleft()
+        if direction not in direction_map:
+            direction_map[direction] = [node.val]
+        else:
+            direction_map[direction].append((node.val, direction))
+
+        if node.left:
+            queue.append((node.left, direction - 1))
+
+        if node.right:
+            queue.append((node.right, direction + 1))
+
+    sorted_view = sorted(direction_map.items())
+    return [val for direction, val in sorted_view]
+
+
 def main():
     root = TreeNode('a')
     root.left = TreeNode('b')
@@ -61,6 +82,7 @@ def main():
     root.left.left.right.right = TreeNode('k')
 
     print(vertical_traversal(root))
+    print(vertical_order(root))
 
 
 if __name__ == '__main__':

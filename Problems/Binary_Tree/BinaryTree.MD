@@ -1,0 +1,80 @@
+- [ ] Check if two given binary trees are identical or not
+- [x] Calculate height of a binary tree
+- [ ] Delete given Binary Tree
+- [x] Inorder Tree Traversal (Iterative & Recursive Implementation)
+- [x] Preorder Tree Traversal (Iterative & Recursive Implementation)
+- [x] Postorder Tree Traversal (Iterative & Recursive Implementation)
+- [x] Level Order Traversal of Binary Tree
+- [x] Spiral Order Traversal of Binary Tree
+- [ ] Reverse Level Order Traversal of Binary Tree
+- [ ] Print all nodes of a given binary tree in specific order
+- [x] Print Left view of binary tree
+- [x] Print Right View of a Binary Tree
+- [x] Print Bottom View of Binary Tree
+- [x] Print Top View of Binary Tree
+- [ ] Find next node in same level for given node in a binary tree
+- [ ] Check if given binary tree is complete binary tree or not
+- [ ] In-place convert given binary tree to its sum tree
+- [ ] Determine if given two nodes are cousins of each other
+- [ ] Print cousins of given node in a binary tree
+- [ ] Check if given binary tree is a sum tree or not
+- [ ] Combinations of words formed by replacing given numbers with corresponding alphabets
+- [ ] Determine if given binary tree is a subtree of another binary tree or not
+- [x] Find diameter of a binary tree
+- [ ] Check if given binary Tree has symmetric structure or not
+- [ ] Convert binary tree to its mirror
+- [ ] Check if binary tree can be converted to another by doing any no. of swaps of left & right child
+- [ ] Print all paths from root to leaf nodes in a binary tree
+- [ ] Find the lowest common ancestor (LCA) of two nodes in a binary tree
+- [ ] Find ancestors of given node in a Binary Tree
+- [ ] Find the distance between given pairs of nodes in a binary tree
+- [ ] Find vertical sum in a given Binary Tree
+- [x] Perform vertical traversal of a binary tree — I
+- [ ] Perform vertical traversal of a binary tree — II
+- [ ] Print corner nodes of every level in binary tree
+- [x] Find the diagonal sum of given binary tree
+- [x] Print Diagonal Traversal of Binary Tree
+- [ ] In-place convert Binary Tree to Doubly Linked List
+- [ ] Sink nodes containing zero to the bottom of the binary tree
+- [ ] Convert given binary tree to full tree by removing half nodes
+- [ ] Truncate given binary tree to remove nodes which lie on a path having sum less than K
+- [ ] Find maximum sum root-to-leaf path in a binary tree
+- [ ] Check if given binary tree is height balanced or not
+- [x] Find maximum width of given binary tree
+- [ ] Convert normal binary tree to Left-child right-sibling binary tree
+- [ ] Determine if given Binary Tree is a BST or not
+- [ ] Convert a Binary Tree to BST by maintaining its original structure
+- [ ] Invert a Binary Tree
+- [ ] Print all paths from leaf to root node in given binary tree
+- [ ] Iteratively print leaf to root path for every leaf node in a binary tree
+- [ ] Build Binary Tree from given Parent array
+- [ ] Find all nodes at given distance from leaf nodes in a binary tree
+- [ ] Count all subtrees having same value of nodes in a binary tree
+- [ ] Find Maximum Difference Between a Node and its Descendants in a Binary Tree
+- [ ] Construct a Binary Tree from Ancestor Matrix
+- [ ] Calculate height of a binary tree with leaf nodes forming a circular doubly linked list
+- [ ] Find maximum sum path between two leaves in a binary tree
+- [ ] Fix a binary tree that is only one swap away from becoming a BST
+- [ ] Construct a binary tree from inorder and preorder traversal
+- [ ] Construct a binary tree from inorder and postorder traversals
+- [ ] Construct a binary tree from inorder and level order sequence
+- [ ] Construct a full binary tree from preorder sequence with leaf node information
+- [ ] Construct a full binary tree from a preorder and postorder sequence
+- [ ] Set next pointer to inorder successor of all nodes in binary tree
+- [ ] Efficiently print all nodes between two given levels in a binary tree
+- [ ] Find preorder traversal of a binary tree from its inorder and postorder sequence
+- [ ] Find the difference between sum of all nodes present at odd and even levels in a binary tree
+- [ ] Find the size of the largest BST in a Binary Tree
+- [ ] Link nodes present in each level of a binary tree in the form of a linked list
+- [ ] Construct a Cartesian Tree from In-order Traversal
+- [ ] Implementation of Treap Data Structure (Insert, Search and Delete)
+- [ ] Clone a binary tree with random pointers
+- [ ] Threaded Binary Tree
+- [ ] Invert alternate levels of a perfect binary tree
+- [ ] Convert a Binary Tree into a Doubly Linked List in Spiral Order
+- [ ] Check if a binary tree is a min-heap or not
+- [ ] Determine if a binary tree satisfy the height-balanced property of red–black tree
+- [x] Depth first search (DFS) 
+- [x] Breadth first search (BFS)
+- [x] Leaf similar trees
+- [x] Find bottom left node value

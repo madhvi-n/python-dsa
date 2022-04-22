@@ -20,6 +20,7 @@ Right view: a, c, g, m, r, s, t.
 Top view: h, b, d, a, e, g, m, r.
 Bottom view: h, j, p, n, s, t, m, r.
 """
+from collections import deque
 
 
 class TreeNode:
@@ -91,10 +92,28 @@ def vertical_traversal(root):
     return result
 
 
-def top_view(root):
+def top_view_using_vertical_order(root):
     vertical_order = vertical_traversal(root)
     result = [nodes[0] for nodes in vertical_order]
     return result
+
+
+def top_view(root):
+    direction_map = {}
+    queue = deque([(root, 0)])
+    while queue:
+        node, direction = queue.popleft()
+        if direction not in direction_map:
+            direction_map[direction] = node.val
+
+        if node.left:
+            queue.append((node.left, direction - 1))
+
+        if node.right:
+            queue.append((node.right, direction + 1))
+
+    sorted_view = sorted(direction_map.items(), key=lambda x: x[0])
+    return [val for direction, val in sorted_view]
 
 
 def bottom_view(root):
@@ -127,6 +146,7 @@ def main():
     print(f"Left view: {left_view(root)}")
     print(f"Right view: {right_view(root)}")
     print(f"Top view: {top_view(root)}")
+    print(f"Top view: {top_view_using_vertical_order(root)}")
     print(f"Bottom view: {bottom_view(root)}")
 
 
