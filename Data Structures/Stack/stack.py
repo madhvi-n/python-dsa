@@ -1,5 +1,5 @@
 """
-Stack implementation using List
+Stacks implementation using List
 """
 
 class Stack(object):
@@ -11,7 +11,7 @@ class Stack(object):
 
     def pop(self):
         if self.is_empty():
-            raise Empty('Stack is empty')
+            raise Empty('Stacks is empty')
         return self._data.pop()
 
     def is_empty(self):
@@ -19,7 +19,7 @@ class Stack(object):
 
     def peek(self):
         if self.is_empty():
-            raise Empty('Stack is empty')
+            raise Empty('Stacks is empty')
         return self._data[-1]
 
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 Output:
 Top: 23
 Top: 19
-Stack Items: B [23, 19] T
+Stacks Items: B [23, 19] T
 Is stack empty? False
 Top: 15
 """

@@ -19,7 +19,7 @@ class Stack:
 
     def pop(self):
         if self.is_empty():
-            raise Exception("Stack is empty")
+            raise Exception("Stacks is empty")
         removed_value = self.head.val
         self.head = self.head.next
         self._size -= 1

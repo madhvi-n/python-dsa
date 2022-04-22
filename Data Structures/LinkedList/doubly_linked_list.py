@@ -78,7 +78,8 @@ class DoublyLinkedList:
         self.size += 1
 
     def delete_head(self) -> None:
-        if self.size is None: return
+        if self.size is None:
+            return
         if self.size == 1:
             self.head = None
         else:
@@ -90,7 +91,8 @@ class DoublyLinkedList:
         self.size -= 1
 
     def delete_tail(self) -> None:
-        if self.size is None: return
+        if self.size is None:
+            return
 
         temp = self.head
         while temp and temp.next:
