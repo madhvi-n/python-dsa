@@ -16,13 +16,13 @@ class Deque(object):
         self.deque.insert(self.front, val)
 
     def add_rear(self, val):
-        if self.isFull():
+        if self.is_full():
             self.rear = 0
         self.rear += 1
         self.deque.insert(self.rear, val)
 
     def remove_front(self):
-        if self.isEmpty():
+        if self.is_empty():
             return 'Overflow condition'
 
         if len(self.deque) == 1:
@@ -34,7 +34,7 @@ class Deque(object):
             self.front += 1
 
     def remove_rear(self):
-        if self.isEmpty():
+        if self.is_empty():
             return 'Underflow condition'
 
         if len(self.deque) == 1:
@@ -75,7 +75,6 @@ def main():
 
     print(f"Deque: {deque.deque}")
     print(f"Is deque full? {deque.is_full()}")
-
 
 
 if __name__ == '__main__':

@@ -1,5 +1,6 @@
 from collections import deque
 
+
 class Queue:
     def __init__(self):
         self.data = deque()
@@ -20,24 +21,23 @@ class Queue:
 def main():
     q = Queue()
     q.enqueue({
-        'Company': 'Wallmart',
+        'Company': 'Walmart',
         'timestamp': '15 April, 2021, 11:01 AM',
         'price': 131.10
     })
     q.enqueue({
-        'Company': 'Wallmart',
+        'Company': 'Walmart',
         'timestamp': '15 April, 2021, 11:02 AM',
         'price': 131.15
     })
     q.enqueue({
-        'Company': 'Wallmart',
+        'Company': 'Walmart',
         'timestamp': '15 April, 2021, 11:03 AM',
         'price': 131.25
     })
 
     print(q.data)
     q.dequeue()
-
     print(q.data)
 
 
