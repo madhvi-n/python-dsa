@@ -7,6 +7,7 @@ Space complexity: O(n)
 
 from typing import List
 
+
 def linear_search(nums: List[int], target: int) -> int:
     for index, num in enumerate(nums):
         if num == target:
@@ -14,11 +15,19 @@ def linear_search(nums: List[int], target: int) -> int:
     return -1
 
 
+def linear_search_2(nums : List[int], target: int) -> bool:
+    for num in nums:
+        if num == target:
+            return True
+    return False
+
+
 def main():
-    nums = [1,3,5,6,7,8,9,11,13,45,56,78]
+    nums = [1, 3, 5, 6, 7, 8, 9, 11, 13, 45, 56, 78]
     print(linear_search(nums, 58))
     print(linear_search(nums, 45))
-    print(linear_search(nums, 11))
+    print(linear_search_2(nums, 11))
+
 
 if __name__ == '__main__':
     main()

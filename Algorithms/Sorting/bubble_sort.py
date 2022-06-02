@@ -1,15 +1,39 @@
 """
 Bubble Sort
 
-Working:
-Starting from the first index, compare the first and the second element.
-If the first element is greater than the second element, they are swapped.
-Now, compare the second and the third elements. Swap them if they are not in order.
-The above process goes on until the last element
+Steps:
+Start from the pair of the first two elements(A[0] and A[1]), compare their values and, swap them if they are not in the
+correct order. Do the same for the next pair (A[1] & A[2]) and move similarly for the rest of the array.
+The smallest/largest element is at the last position after this step.
+
+Repeat the above steps (n-2) times for the remaining iterations.
+Reduce the array size by one each time as the last element is already sorted.
+The smallest/largest element in this iteration moves to the rightmost position.
+Step 1 in the above algorithm is also called a pass. To sort an array of size n, n-1 passes are required.
+
+Example:
+Suppose we have the array: (5,3,4,2,1).
+    First Pass:
+        (5 3 4 2 1)	→	(3 5 4 2 1)	(3 < 5 swapped)
+        (3 5 4 2 1)	→	(3 4 5 2 1)	(4 < 5 swapped)
+        (3 4 5 2 1)	→	(3 4 2 5 1)	(2 < 5 swapped)
+        (3 4 2 5 1)	→	(3 4 2 1 5)	(1 < 5 swapped)
+    Second Pass:
+        (3 4 2 1 5)	→	(3 4 2 1 5)
+        (3 4 2 1 5)	→	(3 2 4 1 5)	(2 < 4 swapped)
+        (3 2 4 1 5)	→	(3 2 1 4 5)	(1 < 4 swapped)
+    Third Pass:
+        (3 2 1 4 5)	→	(2 3 1 4 5)	(2 < 3 swapped)
+        (2 3 1 4 5)	→	(2 1 3 4 5)	(1 < 3 swapped)
+    Fourth Pass:
+        (2 1 3 4 5)	→	(1 2 3 4 5)	(1 < 2 swapped)
+    We get the sorted array after the fourth pass - (1 2 3 4 5)
 
 Time Complexity: O(n^2)
+Space complexity: O(n)
 """
 from typing import List
+
 
 def bubble_sort(num_list: List[int]) -> List[int]:
     for i in range(0, len(num_list)):
@@ -44,38 +68,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-"""
-How it works:
-i=0, j=0: [2, 8, 4, 6, 9, 12, 1, 0, 7, 5]
-i=0, j=1: [2, 4, 8, 6, 9, 12, 1, 0, 7, 5]
-i=0, j=2: [2, 4, 6, 8, 9, 12, 1, 0, 7, 5]
-i=0, j=5: [2, 4, 6, 8, 9, 1, 12, 0, 7, 5]
-i=0, j=6: [2, 4, 6, 8, 9, 1, 0, 12, 7, 5]
-i=0, j=7: [2, 4, 6, 8, 9, 1, 0, 7, 12, 5]
-i=0, j=8: [2, 4, 6, 8, 9, 1, 0, 7, 5, 12]
-
-i=1, j=4: [2, 4, 6, 8, 1, 9, 0, 7, 5, 12]
-i=1, j=5: [2, 4, 6, 8, 1, 0, 9, 7, 5, 12]
-i=1, j=6: [2, 4, 6, 8, 1, 0, 7, 9, 5, 12]
-i=1, j=7: [2, 4, 6, 8, 1, 0, 7, 5, 9, 12]
-
-i=2, j=3: [2, 4, 6, 1, 8, 0, 7, 5, 9, 12]
-i=2, j=4: [2, 4, 6, 1, 0, 8, 7, 5, 9, 12]
-i=2, j=5: [2, 4, 6, 1, 0, 7, 8, 5, 9, 12]
-i=2, j=6: [2, 4, 6, 1, 0, 7, 5, 8, 9, 12]
-
-i=3, j=2: [2, 4, 1, 6, 0, 7, 5, 8, 9, 12]
-i=3, j=3: [2, 4, 1, 0, 6, 7, 5, 8, 9, 12]
-i=3, j=5: [2, 4, 1, 0, 6, 5, 7, 8, 9, 12]
-
-i=4, j=1: [2, 1, 4, 0, 6, 5, 7, 8, 9, 12]
-i=4, j=2: [2, 1, 0, 4, 6, 5, 7, 8, 9, 12]
-i=4, j=4: [2, 1, 0, 4, 5, 6, 7, 8, 9, 12]
-
-i=5, j=0: [1, 2, 0, 4, 5, 6, 7, 8, 9, 12]
-i=5, j=1: [1, 0, 2, 4, 5, 6, 7, 8, 9, 12]
-
-i=6, j=0: [0, 1, 2, 4, 5, 6, 7, 8, 9, 12]
-"""

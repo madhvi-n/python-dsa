@@ -6,6 +6,7 @@ Space complexity: O(n)
 """
 from typing import List
 
+
 def binary_search(nums: List[int], target: int) -> int:
     start, end = 0, len(nums)
 
@@ -21,11 +22,13 @@ def binary_search(nums: List[int], target: int) -> int:
 
     return -1
 
+
 def main():
-    nums = [1,3,5,6,7,8,9,11,13,45,56,78]
+    nums = [1, 3, 5, 6, 7, 8, 9, 11, 13, 45, 56, 78]
     print(binary_search(nums, 58))
     print(binary_search(nums, 45))
     print(binary_search(nums, 11))
+
 
 if __name__ == '__main__':
     main()
