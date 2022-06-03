@@ -23,7 +23,7 @@ class Trie:
             # if char not in curr.children:
             #     curr.children[char] = TrieNode()
             # curr = curr.children[char]
-            curr.children.setdefault(char, TrieNode())
+            curr = curr.children.setdefault(char, TrieNode())
         curr.end_of_word = True
 
     def search(self, word: str) -> bool:
