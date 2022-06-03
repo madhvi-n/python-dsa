@@ -20,10 +20,9 @@ class Trie:
             # if char not in curr.children, create new TrieNode
             # else set curr equal to that children
 
-            # if char not in curr.children:
-            #     curr.children[char] = TrieNode()
-            # curr = curr.children[char]
-            curr = curr.children.setdefault(char, TrieNode())
+            if char not in curr.children:
+                curr.children[char] = TrieNode()
+            curr = curr.children[char]
         curr.end_of_word = True
 
     def search(self, word: str) -> bool:
