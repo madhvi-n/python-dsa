@@ -27,7 +27,7 @@ def is_scc(n: int, edges: list[list]):
             if not visited[node]:
                 dfs2(node, visited)
 
-    def reverse():
+    def transpose_graph():
         adjacency_list.clear()
         for x, y in edges:
             adjacency_list[y].append(x)
@@ -39,7 +39,7 @@ def is_scc(n: int, edges: list[list]):
     if any(visit == False for visit in visited):
         return False
 
-    reverse()
+    transpose_graph()
 
     while stack:
         curr = stack.pop()
@@ -76,7 +76,7 @@ def find_scc(n: int, edges: list[list]):
                 dfs2(node, visited)
         print()
 
-    def reverse():
+    def transpose_graph():
         adjacency_list.clear()
         for x, y in edges:
             adjacency_list[y].append(x)
@@ -85,7 +85,7 @@ def find_scc(n: int, edges: list[list]):
         if not visited[i]:
             dfs(i, visited, stack)
 
-    reverse()
+    transpose_graph()
 
     while stack:
         curr = stack.pop()
