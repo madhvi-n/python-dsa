@@ -12,30 +12,43 @@ Time complexity: O(V * E)
 """
 
 
-def find_shortest_path(n: int, edges: list[list]):
-    parent = [None] * n
+def get_path(parent, vertex):
+    if vertex and vertex < 0:
+        return []
+    return get_path(parent, parent[vertex]) + [vertex]
+
+
+def find_shortest_path(n: int, source: int, edges: list[list]):
+    parent = [-1] * n
     distance = [float('inf')] * n
 
-    parent[0] = -1
-    distance[0] = 0
+    distance[source] = 0
 
     for i in range(n - 1):
         for u, v, w in edges:
+            # if distance to destination can be shortened by taking the edge (u, v)
+            # update distance to new lower value and set parent of v as u
             if distance[u] != float('inf') and distance[u] + w < distance[v]:
                 distance[v] = distance[u] + w
+                parent[v] = u
 
+    # run relaxation step once more to check for negative edge weight cycle
     for u, v, w in edges:
         if distance[u] != float('inf') and distance[u] + w < distance[v]:
             print("Graph contains negative weight cycle")
             return
 
-    print(f"Vertex   \t  Distance from source")
     for i in range(n):
-        print(f"{i} \t\t -> \t\t {distance[i]}")
+        if i != source and distance[i] < float('inf'):
+            print(f'The distance of vertex {i} from vertex {source} is {distance[i]}. '
+                  f'Its path is', get_path(parent, i))
 
 
 def main():
-    find_shortest_path(5, [[0, 1, -1], [0, 2, 4], [1, 2, 3], [1, 3, 2], [1, 4, 2], [3, 2, 5], [3, 1, 1], [4, 3, -3]])
+    edges = [[0, 1, -1], [0, 2, 4], [1, 2, 3], [1, 3, 2], [1, 4, 2], [3, 2, 5], [3, 1, 1], [4, 3, -3]]
+    n = 5
+    for source in range(n):
+        find_shortest_path(n, source, edges)
 
 
 if __name__ == '__main__':

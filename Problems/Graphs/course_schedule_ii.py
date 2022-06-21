@@ -89,6 +89,37 @@ def can_finish_using_kahns_algorithm(num_courses: int, prerequisites: list[list[
     return topological_order if len(topological_order) == num_courses else []
 
 
+def can_finish_ii(num_courses: int, prerequisites: list[list]):
+    pre_list = defaultdict(list)
+
+    for course, pre in prerequisites:
+        pre_list[course].append(pre)
+
+    output = []
+    visited = set()
+    cycle = set()
+
+    def dfs(course):
+        if course in visited:
+            return True
+        if course in cycle:
+            return False
+
+        cycle.add(course)
+
+        for pre in pre_list[course]:
+            if not dfs(pre):
+                return False
+        cycle.remove(course)
+        visited.add(course)
+        output.append(course)
+        return True
+    for c in range(num_courses):
+        if not dfs(c):
+            return []
+    return output
+
+
 def main():
     print(can_finish(2, [[1, 0]]))
     print(can_finish(2, [[1, 0], [0, 1]]))
@@ -99,6 +130,10 @@ def main():
     print(can_finish_using_kahns_algorithm(2, [[1, 0]]))
     print(can_finish_using_kahns_algorithm(2, [[1, 0], [0, 1]]))
     print(can_finish_using_kahns_algorithm(4, [[1, 0], [2, 0], [3, 1], [3, 2]]))
+
+    print()
+
+    print(can_finish_ii(4, [[1, 0], [2, 0], [3, 1], [3, 2]]))
 
 
 if __name__ == '__main__':

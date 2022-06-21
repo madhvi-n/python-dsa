@@ -3,6 +3,12 @@ Complexity Analysis:
 Time complexity: O(V + E), where V is the number of vertices and E is the number of edges in the graph.
 Space Complexity: O(V), since an extra visited array of size V is required.
 
+def dfs(vertex v):
+    visit(v)
+    for each neighbor u of v
+        if u is undiscovered
+            call dfs(u)
+
 """
 from collections import defaultdict
 
@@ -14,8 +20,8 @@ class Graph:
     def add_edge(self, u, v):
         self.graph[u].append(v)
 
-    def bfs(self, source):
-        visited = [False] * (max(self.graph) + 1)
+    def bfs(self, source, n):
+        visited = [False] * n
 
         # Mark the source node as visited and enqueue it
         queue = [source]
@@ -46,15 +52,14 @@ class Graph:
 def main():
     g = Graph()
     g.add_edge(0, 1)
-    g.add_edge(0, 2)
-    g.add_edge(1, 2)
-    g.add_edge(2, 0)
+    g.add_edge(1, 7)
+    g.add_edge(1, 8)
     g.add_edge(2, 3)
     g.add_edge(3, 3)
 
-    g.bfs(2)
+    g.bfs(0, 9)
     print()
-    g.dfs(2)
+    g.dfs(0)
 
 
 if __name__ == '__main__':

@@ -2,75 +2,54 @@ from collections import defaultdict
 
 
 class Graph:
-    def __init__(self, vertices):
+    def __init__(self, vertices, edges):
         self.vertices = vertices
-        self.graph = defaultdict(list)
+        self.adjacency_list = defaultdict(list)
 
-    def add_edge(self, src, dest) -> None:
-        self.graph[src].append(dest)
-
-    def find_parent(self, parent, i) -> int:
-        if parent[i] == -1:
-            return i
-        else:
-            return self.find_parent(parent, parent[i])
-
-    def union_find(self, parent, x, y) -> None:
-        parent[x] = y
-
-    def is_cyclic(self) -> bool:
-        parent = [-1] * (self.vertices + 1)
-
-        for i in self.graph:
-            for j in self.graph[i]:
-                x = self.find_parent(parent, i)
-                y = self.find_parent(parent, j)
-
-                if x == y:
-                    return True
-                self.union_find(parent, x, y)
-        return False
+        for src, dest in edges:
+            self.adjacency_list[src].append(dest)
 
 
-def is_cyclic(n: int, edges: list[list]):
-    adjacency_list = defaultdict(list)
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = {i: i for i in range(n)}
 
-    for x, y in edges:
-        adjacency_list[x].append(y)
+    def find(self, k) -> int:
+        # if k is root
+        if self.parent[k] == k:
+            return k
 
-    dsuf = [-1] * (n + 1)
+        # recurse till we find the root
+        return self.find(self.parent[k])
 
-    def find(v):
-        if dsuf[v] == -1:
-            return v
-        return find(dsuf[v])
+    def union(self, x, y) -> None:
+        # find the root of the sets in which elements `x` and `y` belongs
+        a = self.find(x)
+        b = self.find(y)
+        self.parent[a] = b
 
-    def union_operation(x, y):
-        x_parent = find(x)
-        y_parent = find(y)
-        dsuf[x_parent] = y_parent
 
-    for x, y in edges:
-        from_parent = find(x)
-        to_parent = find(y)
+def find_cycle(n: int, edges: list[list]):
+    g = Graph(n, edges)
 
-        if from_parent == to_parent:
-            return True
+    ds = DisjointSet(n)
 
-        union_operation(from_parent, to_parent)
+    for u in range(n):
+        for v in g.adjacency_list[u]:
+            from_parent = ds.find(u)
+            to_parent = ds.find(v)
+
+            if from_parent == to_parent:
+                return True
+            else:
+                ds.union(from_parent, to_parent)
     return False
 
 
 def main():
-    print(is_cyclic(3, [[0, 1], [1, 2], [2, 0]]))
-    print(is_cyclic(4, [[1, 2], [1, 3], [2, 4], [4, 3]]))
-
-    g = Graph(4)
-    g.add_edge(1, 2)
-    g.add_edge(1, 3)
-    g.add_edge(2, 4)
-    g.add_edge(4, 3)
-    print(g.is_cyclic())
+    print(find_cycle(3, [[0, 1], [1, 2], [2, 0]]))
+    print(find_cycle(12, [[0, 1], [0, 6], [0, 7], [1, 2], [1, 5], [2, 3],
+        [2, 4], [7, 8], [7, 11], [8, 9], [8, 10], [10, 11]]))
 
 
 if __name__ == '__main__':

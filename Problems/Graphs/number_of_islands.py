@@ -22,6 +22,7 @@ Input: grid = [
 ]
 Output: 3
 """
+from collections import deque
 
 
 def number_of_islands(grid: list[list[str]]) -> int:
@@ -50,6 +51,42 @@ def number_of_islands(grid: list[list[str]]) -> int:
     return islands
 
 
+# using bfs
+def number_of_islands_ii(grid:list[list[str]]):
+    if not grid:
+        return 0
+
+    rows = len(grid)
+    cols = len(grid[0])
+
+    visited = set()
+    islands = 0
+    
+    def bfs(r, c):
+        queue = deque()
+        visited.add((r, c))
+        queue.append((r, c))
+
+        while queue:
+            # convert popleft into pop, and it will remove the recently added element, making it iterative dfs
+            row, col = queue.popleft()
+            directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+
+            for dr, dc in directions:
+                x, y = row + dr, col + dc
+
+                if x in range(rows) and y in range(cols) and grid[x][y] == "1" and (x, y) not in visited:
+                    queue.append((x, y))
+                    visited.add((x, y))
+
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == "1" and (r, c) not in visited:
+                bfs(r, c)
+                islands += 1
+    return islands
+
+
 def main():
     grid = [
         ["1", "1", "1", "1", "0"],
@@ -57,7 +94,7 @@ def main():
         ["1", "1", "0", "0", "0"],
         ["0", "0", "0", "0", "0"]
     ]
-    print(number_of_islands(grid))
+    print(number_of_islands(grid[:]))
     print()
 
     grid2 = [
@@ -66,7 +103,7 @@ def main():
         ["0", "0", "1", "0", "0"],
         ["0", "0", "0", "1", "1"]
     ]
-    print(number_of_islands(grid2))
+    print(number_of_islands_ii(grid2))
 
 
 if __name__ == '__main__':
