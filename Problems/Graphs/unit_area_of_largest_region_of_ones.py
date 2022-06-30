@@ -74,7 +74,9 @@ def largest_region(matrix: list[list[int]]):
 
         matrix[row][col] = 2
         size = 1
-        for r, c in [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, 1], [1, -1], [-1, 1]]:
+
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, 1], [1, -1], [-1, 1]]
+        for r, c in directions:
             new_row, new_col = row + r, col + c
             size += get_biggest_region(new_row, new_col)
         return size
@@ -84,7 +86,6 @@ def largest_region(matrix: list[list[int]]):
             if matrix[row][col] == 1:
                 curr_size = get_biggest_region(row, col)
                 max_region = max(max_region, curr_size)
-
     return max_region
 
 
@@ -109,6 +110,7 @@ def main():
         [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
     ]
     print(largest_region(grid2))
+    print(largest_region([[0, 1], [1, 0]]))
 
 
 if __name__ == '__main__':
