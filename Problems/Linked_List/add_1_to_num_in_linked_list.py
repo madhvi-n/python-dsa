@@ -4,13 +4,15 @@ https://www.geeksforgeeks.org/add-1-number-represented-linked-list/
 Number is represented in linked list such that each digit corresponds to a node in linked list. Add 1 to it. For example 1999 is represented as (1-> 9 -> 9 -> 9) and adding 1 to it should change it to (2-> 0 -> 0 -> 0)
 """
 
+
 class ListNode:
-    def __init__(self, val, next=None):
+    def __init__(self, val, next_node=None):
         self.val = val
-        self.next = next
+        self.next = next_node
 
     def __repr__(self):
         return f"ListNode: {self.val}, next: {self.next}"
+
 
 def reverse(head):
     prev, curr = None, head
@@ -21,6 +23,7 @@ def reverse(head):
         curr = temp
     return prev
 
+
 def print_list(head):
     if head is None:
         return
@@ -29,6 +32,7 @@ def print_list(head):
         print(f"{head.val} ->", end=" ")
         head = head.next
     print()
+
 
 def add_one_to_num(head):
     if head is None:
@@ -53,6 +57,7 @@ def add_one_to_num(head):
         prev.next = ListNode(carry)
     return reverse(rll)
 
+
 def main():
     head = ListNode(1)
     head.next = ListNode(9)
@@ -63,6 +68,7 @@ def main():
 
     node = add_one_to_num(head)
     print_list(node)
+
 
 if __name__ == '__main__':
     main()

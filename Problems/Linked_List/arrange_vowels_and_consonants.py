@@ -41,12 +41,12 @@ def arrange(head):
     if head is None:
         return None
 
-    vowelsChar = ['a', 'e', 'i', 'o', 'u']
+    vowels_char = ['a', 'e', 'i', 'o', 'u']
     vowel, consonant = None, None
     start, end = vowel, consonant
 
     while head:
-        if head.val in vowelsChar:
+        if head.val in vowels_char:
             if vowel is None:
                 vowel = head
                 start = vowel

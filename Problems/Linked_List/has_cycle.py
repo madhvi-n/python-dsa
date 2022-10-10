@@ -2,6 +2,7 @@
 Returns starting node of the cycle if cycle exists
 """
 
+
 def has_cycle(head):
     fast = slow = head
 
@@ -10,6 +11,6 @@ def has_cycle(head):
         if slow is fast:
             slow = head
             while slow is not fast:
-                slow, fast = slow.next , fast.next
+                slow, fast = slow.next, fast.next
                 return slow
     return None
