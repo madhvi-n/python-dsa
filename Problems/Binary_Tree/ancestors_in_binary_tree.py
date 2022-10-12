@@ -23,7 +23,6 @@ class TreeNode:
 
 
 def find_ancestors(root: TreeNode, target: TreeNode):
-
     pass
 
 

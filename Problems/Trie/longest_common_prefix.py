@@ -36,7 +36,6 @@ def longest_common_prefix(words: list) -> str:
         for key, val in curr.children.items():
             lcp += key
             curr = val
-
     return lcp
 
 

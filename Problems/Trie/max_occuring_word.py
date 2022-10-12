@@ -7,7 +7,6 @@ class TrieNode:
 
 def insert(head, word):
     curr = head
-
     for char in word:
         curr = curr.children.setdefault(char, TrieNode())
     curr.key = word
