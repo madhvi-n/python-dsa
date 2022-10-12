@@ -2,10 +2,12 @@
 https://www.geeksforgeeks.org/make-middle-node-head-linked-list/
 """
 
+
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val=0, next_node=None):
         self.val = val
-        self.next = next
+        self.next = next_node
+
 
 def length(head):
     count = 0
@@ -13,6 +15,7 @@ def length(head):
         count += 1
         head = head.next
     return count
+
 
 def middle_head(head):
     l = length(head)
@@ -26,8 +29,8 @@ def middle_head(head):
     prev.next = middle.next
     middle.next = head
     head = middle
-
     return head
+
 
 def print_list(head):
     while head:
@@ -46,6 +49,7 @@ def main():
     print_list(head)
     node = middle_head(head)
     print_list(node)
+
 
 if __name__ == '__main__':
     main()
